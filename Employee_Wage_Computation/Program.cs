@@ -9,14 +9,11 @@ namespace Employee_Wage_Computation
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program");
-            EmpWageBuiderObject dmart = new EmpWageBuiderObject("D-Mart", 20, 50, 10);
-            EmpWageBuiderObject bigBazar = new EmpWageBuiderObject("Big-Bazar", 20, 80, 20);
-            dmart.ComputeEmpWage();
-            Console.WriteLine(dmart.toString());
+            EmpWageBuiderArray empWageBuiderArray = new EmpWageBuiderArray();
 
-            bigBazar.ComputeEmpWage();
-            Console.WriteLine(bigBazar.toString());
-
+            empWageBuiderArray.AddCompanyEmpWage("D-Mart", 20, 15, 80);
+            empWageBuiderArray.AddCompanyEmpWage("Big-Bazar", 20, 10, 80);
+            empWageBuiderArray.ComputeEmpWage();
         }
     }
 }
