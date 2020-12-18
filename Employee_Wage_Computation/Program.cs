@@ -14,6 +14,7 @@ namespace Employee_Wage_Computation
             empWageBuiderArray.AddCompanyEmpWage("D-Mart", 20, 15, 80);
             empWageBuiderArray.AddCompanyEmpWage("Big-Bazar", 20, 10, 80);
             empWageBuiderArray.ComputeEmpWage();
+            Console.WriteLine("Total Wage for D-Mart Company "+ empWageBuiderArray.GetTotalWage("D-Mart"));
         }
     }
 }

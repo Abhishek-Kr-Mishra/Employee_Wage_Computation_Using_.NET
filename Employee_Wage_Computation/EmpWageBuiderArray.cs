@@ -63,6 +63,9 @@ namespace Employee_Wage_Computation
             }
             return totalEmpHours * companyEmpWage.empRatePerHour;
         }
-      
+        public int GetTotalWage(string company)
+        {
+            return this.companyEmpWageMap[company].totalEmpWage;
+        }
     }
 }
