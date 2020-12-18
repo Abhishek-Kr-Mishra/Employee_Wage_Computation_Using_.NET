@@ -24,6 +24,7 @@ namespace Employee_Wage_Computation
             this.totalEmpWage = totalEmpWage;
         }
 
+
         public string toString()
         {
             return "Total Emp Wage for company " + this.company + " is " + this.totalEmpWage;
