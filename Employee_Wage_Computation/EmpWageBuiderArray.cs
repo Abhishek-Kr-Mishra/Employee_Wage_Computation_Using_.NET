@@ -1,35 +1,39 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Employee_Wage_Computation
 {
-    class EmpWageBuiderArray
+    class EmpWageBuiderArray : IComputeEmpWage
     {
         const int IS_FULL_TIME = 1;
         const int IS_PART_TIME = 2;
 
-        private int numOfCompany = 0;
-        private CompanyEmpWage[] companyEmpWageArray;
+        private List<CompanyEmpWage> companyEmpWageList;
+        private Dictionary<String, CompanyEmpWage> companyEmpWageMap;
 
         public EmpWageBuiderArray()
         {
-            this.companyEmpWageArray = new CompanyEmpWage[5];
+            companyEmpWageList = new List<CompanyEmpWage>();
+            companyEmpWageMap = new Dictionary<String, CompanyEmpWage>();
         }
         
         public void AddCompanyEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
-            companyEmpWageArray[this.numOfCompany] = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
-            numOfCompany++;
+            CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
+
+            companyEmpWageList.Add(companyEmpWage);
+            companyEmpWageMap.Add(company, companyEmpWage);
         }
 
         public void ComputeEmpWage()
         {
-            for(int i=0; i<numOfCompany; i++)
+            for (int i = 0; i < companyEmpWageList.Count; i++)
             {
-                companyEmpWageArray[i].SetTotalEmpWage(this.ComputeEmpWage(this.companyEmpWageArray[i]));
-                Console.WriteLine(this.companyEmpWageArray[i].toString());
-
+                CompanyEmpWage company = companyEmpWageList[i];
+                company.SetTotalEmpWage(this.ComputeEmpWage(company));
+                Console.WriteLine(company.toString());
             }
         }
         public int ComputeEmpWage(CompanyEmpWage companyEmpWage)
