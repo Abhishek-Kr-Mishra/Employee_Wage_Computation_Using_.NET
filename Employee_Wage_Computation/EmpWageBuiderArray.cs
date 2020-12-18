@@ -16,7 +16,7 @@ namespace Employee_Wage_Computation
         public EmpWageBuiderArray()
         {
             companyEmpWageList = new List<CompanyEmpWage>();
-            
+            companyEmpWageMap = new Dictionary<String, CompanyEmpWage>();
         }
         
         public void AddCompanyEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
@@ -24,6 +24,7 @@ namespace Employee_Wage_Computation
             CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
 
             companyEmpWageList.Add(companyEmpWage);
+            companyEmpWageMap.Add(company, companyEmpWage);
         }
 
         public void ComputeEmpWage()
